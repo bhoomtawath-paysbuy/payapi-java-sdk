@@ -1,2 +1,30 @@
+# use glob syntax.
+syntax: glob
+
+*~
+*.bak
+*.off
+*.old
+.DS_Store
+
+# building
+target
+
+# Eclipse
+.classpath
+.project
+.settings
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# IDEA
 .idea
-payapisdk/**/*.class
+*.iml
+*.ipr
+*.iws
