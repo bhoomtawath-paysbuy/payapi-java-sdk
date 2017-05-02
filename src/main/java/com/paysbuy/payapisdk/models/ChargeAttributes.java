@@ -1,6 +1,7 @@
-package com.paysbuy.payapisdk;
+package com.paysbuy.payapisdk.models;
 
-import com.google.gson.Gson;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ChargeAttributes {
 	private String token;
@@ -58,8 +59,8 @@ public class ChargeAttributes {
 		this.amount = amount;
 	}
 
-	public String toJSON() {
-		Gson gson = new Gson();
-		return gson.toJson(this);
+	public String toJSON() throws JsonProcessingException {
+		ObjectMapper mapper = new ObjectMapper();
+		return mapper.writeValueAsString(this);
 	}
 }
