@@ -1,4 +1,4 @@
-package com.paysbuy.payapisdk.payment;
+package com.paysbuy.payapisdk.test.payment;
 
 import com.paysbuy.payapisdk.PaymentService;
 import com.paysbuy.payapisdk.models.ChargeAttributes;

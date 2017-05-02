@@ -1,21 +1,19 @@
-package com.paysbuy.payapisdk.payment;
+package com.paysbuy.payapisdk.test.payment;
 
 import com.paysbuy.payapisdk.PaymentService;
 import com.paysbuy.payapisdk.models.PaymentResponse;
-import com.paysbuy.payapisdk.models.PaymentResponseBody;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
+public class CaptureTest {
 
-public class GetTokenTest {
 	@Test
-	public void getTokenShouldRespondWithUnauthorizedIfWrongAPIKeyIsUsed() {
+	public void captureShouldRespondWithUnauthorizedIfWrongAPIKeyIsUsed() {
 		try {
 			PaymentService paymentService = new PaymentService("pub_unauthorized");
-			PaymentResponse pr = paymentService.getToken("pay_1234");
+			PaymentResponse pr = paymentService.capture(Config.PAYMENT_TOKEN);
 			Assert.assertEquals(pr.getResponse().code(), 401);
 		} catch (IOException e) {
 			Assert.fail();
@@ -23,10 +21,10 @@ public class GetTokenTest {
 	}
 
 	@Test
-	public void getTokenShouldRespondWithNotFoundIfPaymentTokenDoesNotExist() {
+	public void captureShouldRespondWithNotFoundIfPaymentTokenDoesNotExist() {
 		try {
 			PaymentService paymentService = new PaymentService(Config.API_KEY);
-			PaymentResponse pr = paymentService.getToken("pay_1234");
+			PaymentResponse pr = paymentService.capture("pay_notfound");
 			Assert.assertEquals(pr.getResponse().code(), 404);
 		} catch (IOException e) {
 			Assert.fail();
@@ -34,12 +32,12 @@ public class GetTokenTest {
 	}
 
 	@Test
-	public void getTokenShouldReturnPaymentResponse() {
+	public void captureShouldRespondWithSuccessAsTrue() {
 		try {
 			PaymentService paymentService = new PaymentService(Config.API_KEY);
-			PaymentResponse pr = paymentService.getToken(Config.PAYMENT_TOKEN);
+			PaymentResponse pr = paymentService.capture(Config.PAYMENT_TOKEN);
 			Assert.assertEquals(pr.getResponse().code(), 200);
-			Assert.assertThat(pr.getObject(), instanceOf(PaymentResponseBody.class));
+			Assert.assertEquals(pr.isSuccess(), true);
 		} catch (IOException e) {
 			Assert.fail();
 		}

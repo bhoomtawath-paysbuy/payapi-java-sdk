@@ -6,6 +6,8 @@ public class PaymentDetail {
 	private String status;
 	private String redirect;
 	private double amount;
+
+	private double netAmount;
 	private double fees;
 	private boolean captured;
 	private boolean authorized;
@@ -90,5 +92,13 @@ public class PaymentDetail {
 
 	public boolean isDisputed() {
 		return disputed;
+	}
+
+	public double getNetAmount() {
+		return netAmount;
+	}
+
+	public void setNetAmount(double netAmount) {
+		this.netAmount = netAmount;
 	}
 }

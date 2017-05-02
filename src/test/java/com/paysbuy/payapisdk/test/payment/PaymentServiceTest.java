@@ -1,4 +1,4 @@
-package com.paysbuy.payapisdk.payment;
+package com.paysbuy.payapisdk.test.payment;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -7,8 +7,8 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
 		AliveTest.class,
 		GetTokenTest.class,
+		ChargeTest.class,
 		CaptureTest.class,
-		ChargeTest.class
 })
 
 public class PaymentServiceTest {

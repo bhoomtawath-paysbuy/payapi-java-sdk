@@ -1,5 +1,6 @@
-package com.paysbuy.payapisdk.converters;
+package com.paysbuy.payapisdk.test.converters;
 
+import com.paysbuy.payapisdk.converters.JSONPaymentConverter;
 import com.paysbuy.payapisdk.models.*;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
