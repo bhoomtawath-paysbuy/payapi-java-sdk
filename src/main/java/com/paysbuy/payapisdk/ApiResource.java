@@ -2,17 +2,17 @@ package com.paysbuy.payapisdk;
 
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
-import okhttp3.ResponseBody;
+import okhttp3.Response;
 
 import java.io.IOException;
 
 class ApiResource {
 
-	static ResponseBody request(String method, HttpUrl url, Headers headers) throws IOException {
+	static Response request(String method, HttpUrl url, Headers headers) throws IOException {
 		return HttpHelper.request(method, url, null, headers);
 	}
 
-	static ResponseBody request(String method, HttpUrl url, String payload, Headers headers) throws IOException {
+	static Response request(String method, HttpUrl url, String payload, Headers headers) throws IOException {
 		return HttpHelper.request(method, url, payload, headers);
 	}
 

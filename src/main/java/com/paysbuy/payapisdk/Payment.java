@@ -1,7 +1,7 @@
 package com.paysbuy.payapisdk;
 
 import okhttp3.HttpUrl;
-import okhttp3.ResponseBody;
+import okhttp3.Response;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -15,19 +15,19 @@ public class Payment {
 		encodedAPIKey = new String(Base64.getEncoder().encode((secretAPIKey + ":").getBytes()));
 	}
 
-	public ResponseBody alive() throws IOException {
+	public Response alive() throws IOException {
 		return ApiResource.request("GET", prepareUrl("alive"), null);
 	}
 
-	public ResponseBody getToken(String paymentToken) throws IOException {
+	public Response getToken(String paymentToken) throws IOException {
 		return ApiResource.request("GET", prepareUrl(paymentToken), ApiResource.prepareDefaultHeaders(encodedAPIKey).build());
 	}
 
-	public ResponseBody charge(ChargeAttributes attributes) throws IOException {
+	public Response charge(ChargeAttributes attributes) throws IOException {
 		return ApiResource.request("POST", prepareUrl("/"), attributes.toJSON(), ApiResource.prepareDefaultHeaders(encodedAPIKey).build());
 	}
 
-	public ResponseBody capture(String paymentToken) throws IOException {
+	public Response capture(String paymentToken) throws IOException {
 		return ApiResource.request("POST", prepareUrl(paymentToken + "/capture"), null, ApiResource.prepareDefaultHeaders(encodedAPIKey).build());
 	}
 

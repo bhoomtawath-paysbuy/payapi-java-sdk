@@ -10,7 +10,7 @@ class HttpHelper {
 
 	private static final MediaType JSON = MediaType.parse("application/json");
 
-	static ResponseBody request(String method, HttpUrl url, String payload, Headers headers) throws IOException {
+	static Response request(String method, HttpUrl url, String payload, Headers headers) throws IOException {
 		createClient();
 		RequestBody body = null;
 		if (payload != null) {
@@ -23,8 +23,7 @@ class HttpHelper {
 				.method(method, body)
 				.build();
 
-		Response res = client.newCall(req).execute();
-		return res.body();
+		return client.newCall(req).execute();
 	}
 
 	private static Request.Builder buildRequest(HttpUrl url, Headers headers) {
