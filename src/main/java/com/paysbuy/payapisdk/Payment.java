@@ -35,7 +35,6 @@ public class Payment {
 		return ApiResource.prepareUrl()
 				.addPathSegment(SERVICE_NAME)
 				.addPathSegments(segments)
-				.port(2999)
 				.build();
 	}
 }
