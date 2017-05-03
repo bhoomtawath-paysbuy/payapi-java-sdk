@@ -17,7 +17,7 @@ public class AliveTest {
 			Assert.assertEquals(aliveResult.code(), 200);
 			Assert.assertEquals(aliveResult.body().string(), "OK");
 		} catch (IOException e) {
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 }

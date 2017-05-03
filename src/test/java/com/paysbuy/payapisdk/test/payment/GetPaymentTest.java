@@ -41,7 +41,7 @@ public class GetPaymentTest {
 			Assert.assertEquals(pr.getResponse().code(), 200);
 			Assert.assertThat(pr.getObject(), instanceOf(PaymentResponseBody.class));
 		} catch (IOException e) {
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 }

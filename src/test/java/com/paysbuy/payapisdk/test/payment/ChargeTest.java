@@ -41,7 +41,7 @@ public class ChargeTest {
 			PaymentResponse pr = paymentService.charge(invalidAttributes);
 			Assert.assertEquals(pr.getResponse().code(), 400);
 		} catch (IOException e) {
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 }

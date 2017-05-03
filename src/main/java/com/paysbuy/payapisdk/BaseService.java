@@ -24,6 +24,10 @@ class BaseService {
 		this.serviceName = serviceName;
 	}
 
+	/**
+	 * @param segments url segments that is separated by "/" ("/" at the beginning shouldn't exist)
+	 * @return url of the request
+	 */
 	protected HttpUrl prepareUrl(String segments) {
 		return ApiResource.prepareUrl()
 				.addPathSegment(serviceName)
@@ -31,6 +35,11 @@ class BaseService {
 				.build();
 	}
 
+	/**
+	 * Attach an encoded API key to the header
+	 * @param encodedAPIKey
+	 * @return
+	 */
 	protected Headers.Builder prepareHeaders(String encodedAPIKey) {
 		return ApiResource.prepareDefaultHeaders(encodedAPIKey);
 	}

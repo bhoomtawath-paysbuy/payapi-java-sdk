@@ -1,5 +1,8 @@
 package com.paysbuy.payapisdk.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PaymentDetail {
 	private String id;
 	private String currency;
@@ -54,6 +57,13 @@ public class PaymentDetail {
 		this.disputed = disputed;
 	}
 
+	public void setNetAmount(double netAmount) {
+		this.netAmount = netAmount;
+	}
+
+	/**
+	 * @return a payment token for retrieving and capturing
+	 */
 	public String getId() {
 		return id;
 	}
@@ -96,9 +106,5 @@ public class PaymentDetail {
 
 	public double getNetAmount() {
 		return netAmount;
-	}
-
-	public void setNetAmount(double netAmount) {
-		this.netAmount = netAmount;
 	}
 }

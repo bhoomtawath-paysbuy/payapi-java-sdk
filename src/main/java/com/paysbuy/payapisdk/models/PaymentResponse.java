@@ -1,7 +1,9 @@
 package com.paysbuy.payapisdk.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import okhttp3.Response;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PaymentResponse {
 	private String id;
 	private boolean success;
@@ -16,10 +18,6 @@ public class PaymentResponse {
 		this.success = success;
 	}
 
-	public boolean isSuccess() {
-		return success;
-	}
-
 	public void setResponse(Response response) {
 		this.response = response;
 	}
@@ -28,10 +26,23 @@ public class PaymentResponse {
 		this.object = object;
 	}
 
+	/**
+	 * @return status that indicate whether the operation is failed or succeeded
+	 */
+	public boolean isSuccess() {
+		return success;
+	}
+
+	/**
+	 * @return original response including header and status code
+	 */
 	public Response getResponse() {
 		return response;
 	}
 
+	/**
+	 * @return a response that is converted into a POJO
+	 */
 	public PaymentResponseBody getObject() {
 		return object;
 	}

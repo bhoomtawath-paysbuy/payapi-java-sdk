@@ -23,7 +23,7 @@ public class JSONPaymentConverterTest {
 			SourceOfFund srcOfFund = payment.getSources().get(0);
 			Assert.assertThat(srcOfFund.getSources(), CoreMatchers.instanceOf(SourceOfFundInfo.class));
 		} catch (Exception e) {
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 
@@ -54,7 +54,8 @@ public class JSONPaymentConverterTest {
 			"            \"name\": \"far boo\",\n" +
 			"            \"city\": \"Bangkok\",\n" +
 			"            \"postal_code\": \"10100\",\n" +
-			"            \"created\": \"2017-02-28T12:00:00+07\"\n" +
+			"            \"created\": \"2017-02-28T12:00:00+07\",\n" +
+		"							 \"updatedBy\": \"Title\"\n" +
 			"          }\n" +
 			"        }\n" +
 			"      ],\n" +

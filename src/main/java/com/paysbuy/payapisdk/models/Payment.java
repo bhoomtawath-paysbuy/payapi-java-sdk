@@ -1,8 +1,11 @@
 package com.paysbuy.payapisdk.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.List;
 import java.util.Map;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Payment {
 	private String id;
 	private String location;
@@ -21,10 +24,6 @@ public class Payment {
 
 	public void setDetails(Map<String, PaymentDetail> details) {
 		this.details = details;
-	}
-
-	public boolean isLivemode() {
-		return livemode;
 	}
 
 	public void setLivemode(boolean livemode) {
@@ -63,22 +62,24 @@ public class Payment {
 		this.sources = sources;
 	}
 
-//	public void setDetails(PaymentDetail details) {
-//		this.details = details;
-//	}
-
+	/**
+	 * @return a list of source of fund that are used to pay for the payment
+	 */
 	public List<SourceOfFund> getSources() {
 		return sources;
 	}
 
-//	public PaymentDetail getDetails() {
-//		return details;
-//	}
+	public boolean isLivemode() {
+		return livemode;
+	}
 
 	public String getId() {
 		return id;
 	}
 
+	/**
+	 * @return aroute to retrieve information of the payment
+	 */
 	public String getLocation() {
 		return location;
 	}
@@ -91,6 +92,9 @@ public class Payment {
 		return description;
 	}
 
+	/**
+	 * @return a token used to identify a customer
+	 */
 	public String getCustomer() {
 		return customer;
 	}
@@ -99,6 +103,9 @@ public class Payment {
 		return meta;
 	}
 
+	/**
+	 * @return a date string that the payment is created
+	 */
 	public String getCreated() {
 		return created;
 	}

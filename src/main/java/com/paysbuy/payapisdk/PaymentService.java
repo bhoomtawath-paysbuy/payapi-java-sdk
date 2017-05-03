@@ -18,14 +18,32 @@ public class PaymentService extends BaseService {
 		return callService("GET", "alive", null);
 	}
 
+	/**
+	 * Get payment using payment token
+	 * @param paymentToken a token used to identify a payment
+	 * @return Details of the payment
+	 * @throws IOException
+	 */
 	public PaymentResponse getPayment(String paymentToken) throws IOException {
 		return convertResult(callService(GET, paymentToken, prepareHeaders(encodedAPIKey).build()));
 	}
 
+	/**
+	 * Charge a payment
+	 * @param attributes	attributes of a payment
+	 * @return	Details of the payment
+	 * @throws IOException
+	 */
 	public PaymentResponse charge(ChargeAttributes attributes) throws IOException {
 		return convertResult(callService(POST, "/", attributes.toJSON(), prepareHeaders(encodedAPIKey).build()));
 	}
 
+	/**
+	 * Capture an authorized payment
+	 * @param paymentToken a token used to identify a payment
+	 * @return Details of the payment
+	 * @throws IOException
+	 */
 	public PaymentResponse capture(String paymentToken) throws IOException {
 		return convertResult(callService(POST, paymentToken + "/capture", null, prepareHeaders(encodedAPIKey).build()));
 	}

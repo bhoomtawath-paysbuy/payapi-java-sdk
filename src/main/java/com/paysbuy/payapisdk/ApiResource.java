@@ -16,12 +16,19 @@ class ApiResource {
 		return HttpHelper.request(method, url, payload, headers);
 	}
 
+	/**
+	 * @param encodedAPIKey
+	 * @return a header with authorization and Content-Type
+	 */
 	static Headers.Builder prepareDefaultHeaders(String encodedAPIKey) {
 		return new Headers.Builder()
 				.add("authorization", "Basic " + encodedAPIKey)
 				.add("Content-Type", "application/x-www-form-urlencoded");
 	}
 
+	/**
+	 * @return HttpUrl with scheme and host
+	 */
 	static HttpUrl.Builder prepareUrl() {
 		return new HttpUrl.Builder()
 				.scheme(Config.HTTP_SCHEME)

@@ -8,7 +8,7 @@ import org.junit.runners.Suite;
 		AliveTest.class,
 		GetPaymentTest.class,
 		ChargeTest.class,
-		CaptureTest.class,
+		CaptureTest.class
 })
 
 public class PaymentServiceTest {
