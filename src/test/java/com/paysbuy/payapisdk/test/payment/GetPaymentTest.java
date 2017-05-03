@@ -18,7 +18,7 @@ public class GetPaymentTest {
 			PaymentResponse pr = paymentService.getPayment("pay_1234");
 			Assert.assertEquals(pr.getResponse().code(), 401);
 		} catch (IOException e) {
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 
@@ -29,7 +29,7 @@ public class GetPaymentTest {
 			PaymentResponse pr = paymentService.getPayment("pay_1234");
 			Assert.assertEquals(pr.getResponse().code(), 404);
 		} catch (IOException e) {
-			Assert.fail();
+			Assert.fail(e.getMessage());
 		}
 	}
 
