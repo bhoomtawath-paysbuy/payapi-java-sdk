@@ -6,9 +6,9 @@ import com.paysbuy.payapisdk.models.ChargeAttributes;
 import com.paysbuy.payapisdk.models.PaymentResponse;
 import okhttp3.HttpUrl;
 import okhttp3.Response;
+import org.apache.commons.codec.binary.Base64;
 
 import java.io.IOException;
-import java.util.Base64;
 
 public class PaymentService {
 	private static final String SERVICE_NAME = "payment";
@@ -16,7 +16,7 @@ public class PaymentService {
 	private String encodedAPIKey;
 
 	public PaymentService(String secretAPIKey) {
-		encodedAPIKey = new String(Base64.getEncoder().encode((secretAPIKey + ":").getBytes()));
+		encodedAPIKey = new String(Base64.encodeBase64((secretAPIKey + ":").getBytes()));
 	}
 
 	public Response alive() throws IOException {

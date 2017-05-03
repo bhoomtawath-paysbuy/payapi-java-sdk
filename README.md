@@ -81,7 +81,8 @@ class App {
 }
 ```
 
-*Retreiving a payment*
+**Retreiving a payment**
+
 A payment can be retrieved using a paymentId with `paymentService.getPayment` method.
 ```java
     paymentService.getPayment(paymentId);
