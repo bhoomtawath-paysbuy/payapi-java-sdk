@@ -4,42 +4,30 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.paysbuy.payapisdk.converters.JSONPaymentConverter;
 import com.paysbuy.payapisdk.models.ChargeAttributes;
 import com.paysbuy.payapisdk.models.PaymentResponse;
-import okhttp3.HttpUrl;
 import okhttp3.Response;
-import org.apache.commons.codec.binary.Base64;
 
 import java.io.IOException;
 
-public class PaymentService {
-	private static final String SERVICE_NAME = "payment";
-
-	private String encodedAPIKey;
+public class PaymentService extends BaseService {
 
 	public PaymentService(String secretAPIKey) {
-		encodedAPIKey = new String(Base64.encodeBase64((secretAPIKey + ":").getBytes()));
+		super(secretAPIKey, "payment");
 	}
 
 	public Response alive() throws IOException {
-		return ApiResource.request("GET", prepareUrl("alive"), null);
+		return callService("GET", "alive", null);
 	}
 
 	public PaymentResponse getPayment(String paymentToken) throws IOException {
-		return convertResult(ApiResource.request("GET", prepareUrl(paymentToken), ApiResource.prepareDefaultHeaders(encodedAPIKey).build()));
+		return convertResult(callService(GET, paymentToken, prepareHeaders(encodedAPIKey).build()));
 	}
 
 	public PaymentResponse charge(ChargeAttributes attributes) throws IOException {
-		return convertResult(ApiResource.request("POST", prepareUrl("/"), attributes.toJSON(), ApiResource.prepareDefaultHeaders(encodedAPIKey).build()));
+		return convertResult(callService(POST, "/", attributes.toJSON(), prepareHeaders(encodedAPIKey).build()));
 	}
 
 	public PaymentResponse capture(String paymentToken) throws IOException {
-		return convertResult(ApiResource.request("POST", prepareUrl(paymentToken + "/capture"), null, ApiResource.prepareDefaultHeaders(encodedAPIKey).build()));
-	}
-
-	private HttpUrl prepareUrl(String segments) {
-		return ApiResource.prepareUrl()
-				.addPathSegment(SERVICE_NAME)
-				.addPathSegments(segments)
-				.build();
+		return convertResult(callService(POST, paymentToken + "/capture", null, prepareHeaders(encodedAPIKey).build()));
 	}
 
 	private PaymentResponse convertResult(Response response) throws IOException {
