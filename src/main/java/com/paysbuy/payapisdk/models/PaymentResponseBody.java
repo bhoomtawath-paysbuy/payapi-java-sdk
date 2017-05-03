@@ -11,6 +11,7 @@ public class PaymentResponseBody {
 	public void setError(Error error) {
 		this.error = error;
 	}
+
 	public void setPayment(Payment payment) {
 		this.payment = payment;
 	}

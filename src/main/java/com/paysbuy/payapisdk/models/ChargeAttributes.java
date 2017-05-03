@@ -9,6 +9,7 @@ public class ChargeAttributes {
 	private String invoice;
 	private String meta;
 	private String description;
+	private boolean capture;
 	private double amount;
 
 	public String getToken() {
@@ -57,6 +58,14 @@ public class ChargeAttributes {
 
 	public void setAmount(double amount) {
 		this.amount = amount;
+	}
+
+	public boolean isCapture() {
+		return capture;
+	}
+
+	public void setCapture(boolean capture) {
+		this.capture = capture;
 	}
 
 	public String toJSON() throws JsonProcessingException {

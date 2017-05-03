@@ -23,7 +23,7 @@ public class PaymentService {
 		return ApiResource.request("GET", prepareUrl("alive"), null);
 	}
 
-	public PaymentResponse getToken(String paymentToken) throws IOException {
+	public PaymentResponse getPayment(String paymentToken) throws IOException {
 		return convertResult(ApiResource.request("GET", prepareUrl(paymentToken), ApiResource.prepareDefaultHeaders(encodedAPIKey).build()));
 	}
 
