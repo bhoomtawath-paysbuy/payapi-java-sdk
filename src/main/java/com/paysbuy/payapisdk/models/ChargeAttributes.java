@@ -9,7 +9,7 @@ public class ChargeAttributes {
 	private String invoice;
 	private String meta;
 	private String description;
-	private boolean capture;
+	private boolean capture = true;
 	private double amount;
 
 	public String getToken() {
