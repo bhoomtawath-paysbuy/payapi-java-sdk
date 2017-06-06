@@ -1,6 +1,6 @@
 # Paysbuy PayAPI - Java SDK
 
-`payapi-sdk` allows you to use [Paysbuy PayAPI]() easily within your PHP projects
+`payapi-sdk` allows you to use [Paysbuy PayAPI]() easily within your Java projects
 
 # Prerequisite
 
@@ -17,10 +17,12 @@ Add following part to your dependencies inside pom.xml
       <groupId>com.paysbuy.payapisdk</groupId>
       <artifactId>payapi-sdk</artifactId>
       <version>1.0</version>
+      <type>jar</type>
     </dependency>
     ...
 </dependencies>
-``` 
+```
+Set an environment variablt "PAYAPI_HOST" to "https://payapi.paysbuy.com"
 # Usage
 
 ## Charging
