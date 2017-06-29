@@ -34,13 +34,4 @@ class ApiResource {
 				.scheme(Config.HTTP_SCHEME)
 				.host(Config.URL);
 	}
-
-	/**
-	 * @return HttpUrl of token-vault
-	 */
-	static HttpUrl.Builder prepareTokenizationUrl() {
-		return new HttpUrl.Builder()
-				.scheme(Config.HTTP_SCHEME)
-				.host(Config.TOKEN_VAULT_URL);
-	}
 }
