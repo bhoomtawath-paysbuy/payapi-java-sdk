@@ -1,8 +1,8 @@
 package com.paysbuy.payapisdk.test.payment;
 
 import com.paysbuy.payapisdk.PaymentService;
-import com.paysbuy.payapisdk.models.PaymentResponse;
-import com.paysbuy.payapisdk.models.PaymentResponseBody;
+import com.paysbuy.payapisdk.models.response.PaymentResponse;
+import com.paysbuy.payapisdk.models.response.PaymentResponseBody;
 import org.junit.Assert;
 import org.junit.Test;
 

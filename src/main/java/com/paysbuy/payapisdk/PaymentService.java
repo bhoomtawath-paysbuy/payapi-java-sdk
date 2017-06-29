@@ -3,7 +3,7 @@ package com.paysbuy.payapisdk;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.paysbuy.payapisdk.converters.JSONPaymentConverter;
 import com.paysbuy.payapisdk.models.ChargeAttributes;
-import com.paysbuy.payapisdk.models.PaymentResponse;
+import com.paysbuy.payapisdk.models.response.PaymentResponse;
 import okhttp3.Response;
 
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.paysbuy.payapisdk.models;
+package com.paysbuy.payapisdk.models.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import okhttp3.Response;

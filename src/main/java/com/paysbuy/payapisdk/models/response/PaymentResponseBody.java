@@ -1,6 +1,8 @@
-package com.paysbuy.payapisdk.models;
+package com.paysbuy.payapisdk.models.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.paysbuy.payapisdk.models.Error;
+import com.paysbuy.payapisdk.models.Payment;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PaymentResponseBody {

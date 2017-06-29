@@ -19,8 +19,12 @@ class BaseService {
 	protected String encodedAPIKey;
 	private String serviceName;
 
+	public BaseService(String secretAPIKey) {
+		encodedAPIKey = encodeAPIKey(secretAPIKey);
+	}
+
 	public BaseService(String secretAPIKey, String serviceName) {
-		encodedAPIKey = new String(Base64.encodeBase64((secretAPIKey + ":").getBytes()));
+		encodedAPIKey = encodeAPIKey(secretAPIKey);
 		this.serviceName = serviceName;
 	}
 
@@ -29,10 +33,16 @@ class BaseService {
 	 * @return url of the request
 	 */
 	protected HttpUrl prepareUrl(String segments) {
-		return ApiResource.prepareUrl()
-				.addPathSegment(serviceName)
-				.addPathSegments(segments)
-				.build();
+		HttpUrl.Builder urlBuilder = ApiResource.prepareUrl();
+		if (serviceName != null) {
+			urlBuilder.addPathSegment(serviceName);
+		}
+
+		if (segments != null) {
+			urlBuilder.addPathSegments(segments);
+		}
+
+		return urlBuilder.build();
 	}
 
 	/**
@@ -50,5 +60,9 @@ class BaseService {
 
 	protected Response callService(String method, String segment, String attributes, Headers headers) throws IOException {
 		return ApiResource.request(method, prepareUrl(segment), attributes, headers);
+	}
+
+	private String encodeAPIKey(String secretAPIKey) {
+		return new String(Base64.encodeBase64((secretAPIKey + ":").getBytes()));
 	}
 }

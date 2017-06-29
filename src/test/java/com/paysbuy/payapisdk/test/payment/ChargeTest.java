@@ -2,7 +2,7 @@ package com.paysbuy.payapisdk.test.payment;
 
 import com.paysbuy.payapisdk.PaymentService;
 import com.paysbuy.payapisdk.models.ChargeAttributes;
-import com.paysbuy.payapisdk.models.PaymentResponse;
+import com.paysbuy.payapisdk.models.response.PaymentResponse;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

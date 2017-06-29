@@ -31,7 +31,7 @@ A payment can be charged with `PaymentService.charge` method, which will return 
 ```java
 import com.paysbuy.payapisdk.PaymentService;
 import com.paysbuy.payapisdk.models.ChargeAttributes;
-import com.paysbuy.payapisdk.models.PaymentResponse;
+import com.paysbuy.payapisdk.models.response.PaymentResponse;
 
 class App {
     public static void main(String args[]) {

@@ -2,7 +2,7 @@ package com.paysbuy.payapisdk.converters;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.paysbuy.payapisdk.models.PaymentResponse;
+import com.paysbuy.payapisdk.models.response.PaymentResponse;
 
 import java.io.IOException;
 
