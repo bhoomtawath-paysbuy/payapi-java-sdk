@@ -32,6 +32,6 @@ class ApiResource {
 	static HttpUrl.Builder prepareUrl() {
 		return new HttpUrl.Builder()
 				.scheme(Config.HTTP_SCHEME)
-				.host(System.getenv("PAYAPI_HOST"));
+				.host(System.getenv(Config.URL));
 	}
 }
