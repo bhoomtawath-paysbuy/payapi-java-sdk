@@ -16,13 +16,16 @@ Add following part to your dependencies inside pom.xml
     <dependency>
       <groupId>com.paysbuy.payapisdk</groupId>
       <artifactId>payapi-sdk</artifactId>
-      <version>1.0</version>
+      <version>1.0.1</version>
       <type>jar</type>
     </dependency>
     ...
 </dependencies>
 ```
-Set an environment variablt "PAYAPI_HOST" to "https://payapi.paysbuy.com"
+
+## Using Gradle
+`compile 'com.paysbuy.payapi:payapi-sdk:1.0.1'`
+
 # Usage
 
 ## Charging
